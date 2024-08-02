@@ -22,7 +22,7 @@ const Menu = () => {
         width={20}
         height={20}
         onClick={() => setOpen(!open)}
-        className='cursor-pointer'
+        className='cursor-pointer bg-orange-300 p-1 rounded-sm'
       />
 
       {open && (
