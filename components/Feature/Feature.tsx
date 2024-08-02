@@ -1,7 +1,18 @@
 import React from 'react'
-import { featuredProducts } from '@/constant/data'
 import Image from 'next/image'
-const Feature = () => {
+import { ProductType } from '@/types/types'
+
+const getData = async () => {
+    const res = await fetch(`${process.env.DELICIOUS_API}/products`,{
+      cache: 'no-store'
+    })
+    if (!res.ok) {
+      throw new Error('Failed!')
+    }
+    return res.json()
+  }
+const Feature = async () => {
+    const featuredProducts: ProductType[] = await getData()
   return (
     <div className='w-screen overflow-x-scroll text-red-500'>
         <div className='w-max flex'>
