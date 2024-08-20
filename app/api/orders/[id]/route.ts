@@ -10,7 +10,7 @@ export const PUT = async (req:NextRequest, {params}: {params: {id: string}}) => 
             where: {
                 id
             },
-            data: {status: body.status} 
+            data: {status: body} 
         })  
 
         return new NextResponse(JSON.stringify({message: 'Order has been  Updated'}), { status: 200 });

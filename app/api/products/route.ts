@@ -17,3 +17,15 @@ export const GET = async (req: NextRequest) => {
         return new NextResponse(JSON.stringify({message: 'Internal Server Error'}), { status: 500 });
     } 
 };
+
+export const POST = async ( req: NextRequest) => {
+    try {
+        const body = await req.json();
+        const product = await prisma.product.create({
+            data: body,
+        });
+        return new NextResponse(JSON.stringify(product), { status: 200 });
+    } catch (error) {
+        return new NextResponse(JSON.stringify({message: 'Internal Server Error'}), { status: 500 });
+    }
+}

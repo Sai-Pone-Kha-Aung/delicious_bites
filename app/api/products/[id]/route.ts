@@ -11,7 +11,6 @@ export const GET = async (req: NextRequest, {params} : {params: {id: string }}) 
                 id:id
             }
         });
-        console.log(products);
         return new NextResponse(JSON.stringify(products), { status: 200 });
     } catch (error) {
         console.log(error);
