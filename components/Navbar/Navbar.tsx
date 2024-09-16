@@ -3,9 +3,10 @@ import Link from 'next/link'
 import React from 'react'
 import CartIcon from '../CartIcon/CartIcon';
 import Menu from '../Menu/Menu';
+import UserLinks from '../UserLinks/UserLinks';
 
 const Navbar = () => {
-    const user = false;
+  const user = false;
   return (
     <div className="h-12 text-white p-4 flex items-center justify-center uppercase text-xl bg-red-500 md:h-24 lg:px-20 xl:px-40">
         <div className='flex-1 items-center font-bold'>
@@ -32,11 +33,7 @@ const Navbar = () => {
                 />
                 <span>123 456 78</span>
             </div>
-            {!user ? (
-                <Link href="/login">Login</Link>
-            ) : (
-                <Link href="/orders">Orders</Link>
-            )}
+            <UserLinks/>
             <CartIcon />
         </div>
     </div>

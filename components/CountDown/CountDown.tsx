@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const CountDown = () => {
     let difference = +new Date(`10/12/2024`) - +new Date();
 
+    const [mounted, setMounted] = useState(false);
     const [delay, setDelay] = useState(difference);
 
     const d = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -12,6 +13,9 @@ const CountDown = () => {
     const s = Math.floor((difference / 1000) % 60);
 
     useEffect(() => {
+        if (!mounted) {
+            setMounted(true);
+        }
         const timer = setInterval(() => {
             setDelay(delay - 1);
         }, 1000);
